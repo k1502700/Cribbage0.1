@@ -45,6 +45,7 @@ public class Hand extends Deck{
     }
 
     public Card playFirstCard(){
+        //TODO: implement chack if there are cards to discard
         System.out.println(name+ " plays: " + deckList.get(deckList.size()-1));
         return deckList.remove(deckList.size()-1);
     }
@@ -74,6 +75,6 @@ public class Hand extends Deck{
 
     @Override
     public String toString() {
-        return name + "'s core.Deck: " + deckList.toString() + " - " + score + " Points";
+        return name + "'s Deck: " + deckList.toString() + " (" + score + "Pts)";
     }
 }

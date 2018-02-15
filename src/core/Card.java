@@ -10,9 +10,6 @@ public class Card {
         face = faceIn;
 
         switch (faceIn){
-            //case "1":
-            //    id = 1;
-            //    break;
             case "2":
                 id = 2;
                 value = 2;
@@ -62,8 +59,8 @@ public class Card {
                 value = 10;
                 break;
             case "A":
-                id = 14;
-                value = 10;
+                id = 1;
+                value = 1;
                 break;
             default:
                 System.out.println("Invalid input for Card creation");
@@ -127,8 +124,8 @@ public class Card {
                 value = 10;
                 break;
             case "A":
-                id = 14;
-                value = 10;
+                id = 1;
+                value = 1;
                 break;
             default:
                 System.out.println("Invalid input for Card creation");
