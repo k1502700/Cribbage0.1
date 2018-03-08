@@ -58,15 +58,15 @@ public class Game {
 
         initialize();
         dealToAll(6);
-//        hand1.addCard(new Card("K","S"));
-//        hand1.addCard(new Card("A","S"));
-//        hand1.addCard(new Card("Q","S"));
-//        hand1.addCard(new Card("J","S"));
-//
-//        for (int i = 0; i < 4; i++){
-//            dealTo(hand2);
-//            dealTo(cribManager);
-//        }
+//        hand1.addCard(new Card("2","S"));
+//        hand1.addCard(new Card("3","S"));
+//        hand1.addCard(new Card("3","H"));
+//        hand1.addCard(new Card("4","S"));
+
+        for (int i = 0; i < 4; i++){
+            dealTo(hand2);
+            dealTo(cribManager);
+        }
 
         System.out.println("Discarding cards:");
         System.out.println(players);
@@ -83,7 +83,7 @@ public class Game {
 
 
         Card firstCard = deckManager.dealCard();
-//        Card firstCard = new Card("5", "S");
+//        Card firstCard = new Card("4", "H");
         if (firstCard.face == "J"){
             dealer.addPoints(2);
         }

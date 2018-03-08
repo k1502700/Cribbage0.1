@@ -29,6 +29,7 @@ public class Evaluator {
         calculator.sort();
 
         ArrayList<Card> cList = calculator.getDeckList();//card List
+        ArrayList<Card> cListCopy = calculator.getDeckList();//copy of cList
         ArrayList<Integer> idList = new ArrayList<>(); //card id List
         ArrayList<Integer> cAmountList = new ArrayList<>(); //card amount/type List
         ArrayList<Integer> saList = new ArrayList<>(); //suit amount List
@@ -54,6 +55,9 @@ public class Evaluator {
 
         for (Card card: cList){
             switch (card.id){
+                case 1:
+                    numberofA++;
+                    break;
                 case 2:
                     numberof2++;
                     break;
@@ -90,9 +94,6 @@ public class Evaluator {
                 case 13:
                     numberofK++;
                     break;
-                case 14:
-                    numberofA++;
-                    break;
                 default:
                     System.out.println("Invalid card id input for evaluation");
                     break;
@@ -113,10 +114,9 @@ public class Evaluator {
         cAmountList.add(numberofK);
         cAmountList.add(numberofA);
 
-
         for (int cardAmount: cAmountList){
             if (cardAmount == 2){
-                currentPlayer.win(2);//TODO: double pair still 2 points
+                currentPlayer.win(2);
                 System.out.println("Found Pair");
             }
             if (cardAmount == 3){
@@ -125,7 +125,7 @@ public class Evaluator {
             }
             if (cardAmount == 4){
                 currentPlayer.win(12);
-                System.out.println("Found PFour of a Kindair");
+                System.out.println("Found Four of a Kind");
             }
             if (cardAmount == 5){
                 System.out.println("----------------------------*ALERT*----------------------------");
@@ -135,106 +135,70 @@ public class Evaluator {
         }
 
         //------------Straight-------------
-        //TODO: 3,4,4,5
 
         if (cList.size() == 5) {
 
-            straight = true;
-            Boolean straight5 = false;
+            Card c1 = cList.get(0);
+            Card c2 = cList.get(1);
+            Card c3 = cList.get(2);
+            Card c4 = cList.get(3);
+            Card c5 = cList.get(4);
 
-            for (int i = 0; i < cList.size() - 1; i++) {
-                if (!(cList.get(i).id == cList.get(i + 1).id - 1)) {
-                    straight = false;
-                }
+            int iD1 = c1.getId();
+            int iD2 = c2.getId();
+            int iD3 = c3.getId();
+            int iD4 = c4.getId();
+            int iD5 = c5.getId();
+
+            Boolean five = false;
+            Boolean four = false;
+
+            if (iD1 + 1 == iD2 && iD2 + 1 == iD3 && iD3 + 1 == iD4 && iD4 + 1 == iD5){
+                System.out.println("Found Straight 5 " + c1 + c2 + c3 + c4 + c5); five = true; currentPlayer.win(5);
             }
-            if (straight) {
-                straight5 = true;
-                currentPlayer.win(5);
-                System.out.println("Found Straight 5");
-            }
+            if (!five) {
+                if (iD1 + 1 == iD2 && iD2 + 1 == iD3 && iD3 + 1 == iD4){ System.out.println("Found Straight 4 " + c1 + c2 + c3 + c4); four = true; currentPlayer.win(4);}
+                if (iD1 + 1 == iD2 && iD2 + 1 == iD3 && iD3 + 1 == iD5){ System.out.println("Found Straight 4 " + c1 + c2 + c3 + c5); four = true; currentPlayer.win(4);}
+                if (iD1 + 1 == iD2 && iD2 + 1 == iD4 && iD4 + 1 == iD5){ System.out.println("Found Straight 4 " + c1 + c2 + c4 + c5); four = true; currentPlayer.win(4);}
+                if (iD1 + 1 == iD3 && iD3 + 1 == iD4 && iD4 + 1 == iD5){ System.out.println("Found Straight 4 " + c1 + c3 + c4 + c5); four = true; currentPlayer.win(4);}
+                if (iD2 + 1 == iD3 && iD3 + 1 == iD4 && iD4 + 1 == iD5){ System.out.println("Found Straight 4 " + c2 + c3 + c4 + c5); four = true; currentPlayer.win(4);}
 
-            Boolean straight4A = true;
-            Boolean straight4B = true;
-
-            if (!straight5) {
-                for (int i = 0; i < cList.size() - 2; i++) {
-                    if (!(cList.get(i).id == cList.get(i + 1).id - 1)) {
-                        straight4A = false;
-                    }
-                }
-                for (int i = 1; i < cList.size() - 1; i++) {
-                    if (!(cList.get(i).id == cList.get(i + 1).id - 1)) {
-                        straight4B = false;
-                    }
-                }
-            }
-
-            if ((straight4A || straight4B) && !straight5) {
-                currentPlayer.win(4);
-                System.out.println("Found Straight 4");
-            } else if (!(straight4A || straight4B || straight5)) {
-
-                Boolean straight3A = true;
-                Boolean straight3B = true;
-                Boolean straight3C = true;
-
-                for (int i = 0; i < cList.size() - 3; i++) {
-                    if (!(cList.get(i).id == cList.get(i + 1).id - 1)) {
-                        straight3A = false;
-                    }
-                }
-                for (int i = 1; i < cList.size() - 2; i++) {
-                    if (!(cList.get(i).id == cList.get(i + 1).id - 1)) {
-                        straight3B = false;
-                    }
-                }
-                for (int i = 2; i < cList.size() - 1; i++) {
-                    if (!(cList.get(i).id == cList.get(i + 1).id - 1)) {
-                        straight3C = false;
-                    }
-                }
-
-                if (straight3A || straight3B || straight3C) {
-                    currentPlayer.win(3);
-                    System.out.println("Found Straight 3");
+                if (!four){
+                    if (iD1 + 1 == iD2 && iD2 + 1 == iD3){ System.out.println("Found Straight 3 " + c1 + c2 + c3); currentPlayer.win(3);}
+                    if (iD1 + 1 == iD2 && iD2 + 1 == iD4){ System.out.println("Found Straight 3 " + c1 + c2 + c4); currentPlayer.win(3);}
+                    if (iD1 + 1 == iD2 && iD2 + 1 == iD5){ System.out.println("Found Straight 3 " + c1 + c2 + c5); currentPlayer.win(3);}
+                    if (iD1 + 1 == iD3 && iD3 + 1 == iD4){ System.out.println("Found Straight 3 " + c1 + c3 + c4); currentPlayer.win(3);}
+                    if (iD1 + 1 == iD3 && iD3 + 1 == iD5){ System.out.println("Found Straight 3 " + c1 + c3 + c5); currentPlayer.win(3);}
+                    if (iD1 + 1 == iD4 && iD4 + 1 == iD5){ System.out.println("Found Straight 3 " + c1 + c4 + c5); currentPlayer.win(3);}
+                    if (iD2 + 1 == iD3 && iD3 + 1 == iD4){ System.out.println("Found Straight 3 " + c2 + c3 + c4); currentPlayer.win(3);}
+                    if (iD2 + 1 == iD3 && iD3 + 1 == iD5){ System.out.println("Found Straight 3 " + c2 + c3 + c5); currentPlayer.win(3);}
+                    if (iD2 + 1 == iD4 && iD4 + 1 == iD5){ System.out.println("Found Straight 3 " + c2 + c4 + c5); currentPlayer.win(3);}
+                    if (iD3 + 1 == iD4 && iD4 + 1 == iD5){ System.out.println("Found Straight 3 " + c3 + c4 + c5); currentPlayer.win(3);}
                 }
             }
         }
+
         else if (cList.size() == 4){
 
-            straight = true;
-            Boolean straight4 = false;
+            Card c1 = cList.get(0);
+            Card c2 = cList.get(1);
+            Card c3 = cList.get(2);
+            Card c4 = cList.get(3);
 
-            for (int i = 0; i < cList.size()-1; i++){
-                if (!(cList.get(i).id == cList.get(i+1).id -1)){
-                    straight = false;
-                }
-            }
-            if (straight) {
-                straight4 = true;
-                currentPlayer.win(4);
-                System.out.println("Found Straight 4");
-            }
+            int iD1 = c1.getId();
+            int iD2 = c2.getId();
+            int iD3 = c3.getId();
+            int iD4 = c4.getId();
 
-            Boolean straight3A = true;
-            Boolean straight3B = true;
+            Boolean four = false;
 
-            if (!straight4){
-                for (int i = 0; i < cList.size()-2; i++){
-                    if (!(cList.get(i).id == cList.get(i+1).id -1)){
-                        straight3A = false;
-                    }
-                }
-                for (int i = 1; i < cList.size()-1; i++){
-                    if (!(cList.get(i).id == cList.get(i+1).id -1)){
-                        straight3B = false;
-                    }
-                }
-            }
+            if (iD1 + 1 == iD2 && iD2 + 1 == iD3 && iD3 + 1 == iD4){ System.out.println("Found Straight 4 " + c1 + c2 + c3 + c4); four = true; currentPlayer.win(4);}
 
-            if ((straight3A || straight3B) && !straight4){
-                currentPlayer.win(3);
-                System.out.println("Found Straight 3");
+            if (!four){
+                if (iD1 + 1 == iD2 && iD2 + 1 == iD3){ System.out.println("Found Straight 3 " + c1 + c2 + c3); currentPlayer.win(3);}
+                if (iD1 + 1 == iD2 && iD2 + 1 == iD4){ System.out.println("Found Straight 3 " + c1 + c2 + c4); currentPlayer.win(3);}
+                if (iD1 + 1 == iD3 && iD3 + 1 == iD4){ System.out.println("Found Straight 3 " + c1 + c3 + c4); currentPlayer.win(3);}
+                if (iD2 + 1 == iD3 && iD3 + 1 == iD4){ System.out.println("Found Straight 3 " + c2 + c3 + c4); currentPlayer.win(3);}
             }
         }
 
