@@ -75,6 +75,11 @@ public class Card {
         suit = suitIn;
 
         switch (inFace){
+            case "A":
+                id = 1;
+                value = 1;
+                break;
+
             case "2":
                 id = 2;
                 value = 2;
@@ -122,10 +127,6 @@ public class Card {
             case "K":
                 id = 13;
                 value = 10;
-                break;
-            case "A":
-                id = 1;
-                value = 1;
                 break;
             default:
                 System.out.println("Invalid input for Card creation");
