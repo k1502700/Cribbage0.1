@@ -62,6 +62,10 @@ public class Card {
                 id = 1;
                 value = 1;
                 break;
+            case "X":
+                id = 99;
+                value = 99;
+                break;
             default:
                 System.out.println("Invalid input for Card creation");
                 id = 0;
@@ -127,6 +131,10 @@ public class Card {
             case "K":
                 id = 13;
                 value = 10;
+                break;
+            case "X":
+                id = 99;
+                value = 99;
                 break;
             default:
                 System.out.println("Invalid input for Card creation");

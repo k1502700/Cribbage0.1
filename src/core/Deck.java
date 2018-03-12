@@ -107,6 +107,12 @@ public class Deck {
         deckList.add(c);
     }
 
+    public void discardAll(){
+        while (deckList.size() > 0){
+            deckList.remove(0);
+        }
+    }
+
     @Override
     public String toString() {
         return deckList.toString();

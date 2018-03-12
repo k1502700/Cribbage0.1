@@ -1,6 +1,7 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Evaluator {
 
@@ -9,6 +10,119 @@ public class Evaluator {
     public Evaluator(String gameType){
         game = gameType;
     }
+
+
+    public int getCribbagePlayScore(Hand currentPlayer, Deck discardDeck){
+        //TODO: CAREFUL!! will give anyone points if they didn't play a card last turn
+        //TODO: only call after successful play
+
+        //------------Pair-------------
+        ArrayList<Card> deckList = discardDeck.getDeckList();
+        int numOfIdenticals = howmanyIdenticals(deckList);
+        int pairPoints = 0;
+        switch (numOfIdenticals){
+            case 2: pairPoints = 2; break;
+            case 3: pairPoints = 6; break;
+            case 4: pairPoints = 12; break;
+            default: pairPoints = 0; break;
+        }
+        currentPlayer.win(pairPoints);
+        if (numOfIdenticals != 1) {
+            System.out.println("Found " + numOfIdenticals + " same cards");
+        }
+        //------------Straight---------
+
+        int straightScore = straight(deckList);
+        if (straightScore != 0) {
+            System.out.println("Found " + straightScore + " Straight");
+        }
+
+        int score = pairPoints + straightScore;
+        //------------sum15------------
+        int sum = 0;
+        for (Card c: deckList){
+            sum = sum + c.value;
+        }
+        if (sum == 15){
+            currentPlayer.win(2);
+            score += 2;
+            System.out.println("Found 15");
+        }
+        if (sum == 31){
+            currentPlayer.win(1);
+            score += 1;
+            System.out.println("Found 31");
+        }
+
+        return score;
+    }
+
+    //not quite what i was supposed to count here
+    public boolean sum15(ArrayList<Card> deckIn, int sum){
+        ArrayList<Card> deck = (ArrayList<Card>) deckIn.clone();
+        if (deck.size() >= 1){
+            int newSum = deck.get(deck.size()-1).value + sum;
+            if (newSum < 15){
+                deck.remove(deck.size()-1);
+                return sum15(deck, newSum);
+            }
+            else if (newSum == 15){
+                return true;
+            }
+            else return false;
+        }
+        else return false;
+    }
+
+    public int straight(ArrayList<Card> deckIn){
+        ArrayList<Card> deck = (ArrayList<Card>) deckIn.clone();
+
+        if (deck.size() < 3){
+            return 0;
+        }
+
+        int score = 0;
+        for (int i = deck.size() - 3; i >= 0; i--){
+            ArrayList<Card> straightChecker = new ArrayList<>();
+            for (int j = i; j < deck.size(); j++){
+                straightChecker.add(deck.get(j));
+            }
+            if (isStraight(straightChecker)){
+                score = deck.size() - i;
+            }
+            else return score;
+        }
+        return score;
+    }
+
+
+
+    public boolean isStraight(ArrayList<Card> deckIn){
+        ArrayList<Card> deck = (ArrayList<Card>) deckIn.clone();
+        deck.sort(new Comparator<Card>() {
+            public int compare(Card o1, Card o2) { return ((Integer)o1.id).compareTo((Integer)o2.id); }
+        });
+        boolean straight = true;
+        for (int i = 0; i < deck.size()-1; i++){
+            if (!(deck.get(i).id == deck.get(i+1).id -1)){
+                straight = false;
+            }
+        }
+        return straight;
+    }
+
+    public int howmanyIdenticals(ArrayList<Card> deckIn){
+        ArrayList<Card> deck = (ArrayList<Card>) deckIn.clone();
+        if (deck.size() >= 2){
+            if (deck.get(deck.size()-1).id == deck.get(deck.size()-2).id){
+                deck.remove(deck.size()-1);
+                return howmanyIdenticals(deck) + 1;
+            }
+            else return 1;
+        }
+        else return 1;
+    }
+
 
     public int getCribbageHandScore(Hand currentPlayer, Card flipCard){
 

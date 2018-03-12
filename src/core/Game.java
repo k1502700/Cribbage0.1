@@ -28,6 +28,7 @@ public class Game {
 
     ArrayList<Hand> players = new ArrayList<>();
 
+
     public void initialize(){
         deckManager = new Deck();
         deck = deckManager.shuffleDeck();
@@ -45,16 +46,12 @@ public class Game {
         //players.add(hand3);
         //players.add(hand4);
 
-        dealer = hand1; //TODO: this needs to be iterated
+        dealer = hand1;
         nonDealer = hand2;
-
-
-
     }
 
 
-
-    public void cribbageRound(){
+    public void cribbageRound() {
 
         initialize();
         dealToAll(6);
@@ -63,14 +60,14 @@ public class Game {
 //        hand1.addCard(new Card("3","H"));
 //        hand1.addCard(new Card("4","S"));
 
-        for (int i = 0; i < 4; i++){
-            dealTo(hand2);
-            dealTo(cribManager);
-        }
+//        for (int i = 0; i < 4; i++){
+//            dealTo(hand2);
+//            dealTo(cribManager);
+//        }
 
         System.out.println("Discarding cards:");
         System.out.println(players);
-        for (Hand player: players) {
+        for (Hand player : players) {
             cribManager.addCard(
                     player.makeMove(this, "DiscardMove"));
             cribManager.addCard(
@@ -84,10 +81,9 @@ public class Game {
 
         Card firstCard = deckManager.dealCard();
 //        Card firstCard = new Card("4", "H");
-        if (firstCard.face == "J"){
+        if (firstCard.face == "J") {
             dealer.addPoints(2);
         }
-        discardManager.addCard(firstCard);
 
         ArrayList<Card> hand1Copy = (ArrayList<Card>) hand1.getDeckList().clone();
         ArrayList<Card> hand2Copy = (ArrayList<Card>) hand2.getDeckList().clone();
@@ -108,50 +104,69 @@ public class Game {
         Hand otherPlayer = dealer;
         Hand tempHand;
 
-        System.out.println(discardManager);
-        System.out.println(getCount());
+//        System.out.println(discardManager);
+//        System.out.println(getCount());
 
-        Boolean wasNoPlay = false;
-        Boolean playing = true;
-        while (playing){
-
-            if (dealer.getDeckList().size() == 0 && nonDealer.getDeckList().size() == 0){
-                break;
+        boolean firstRound = true;
+        boolean outOfCards = false;
+        while (!outOfCards) {
+            discardManager.discardAll();
+            if (firstRound){
+                discardManager.addCard(firstCard);
+                firstRound = false;
             }
 
-            if (currentPlayer.getDeckList().size() == 0){//switch
+
+            Boolean wasNoPlay = false;
+            Boolean playing = true;
+            Hand lastPlayer = hand1;
+            while (playing) {
+
+                if (dealer.getDeckList().size() == 0 && nonDealer.getDeckList().size() == 0) {
+                    outOfCards = true;
+                    break;
+                }
+
+                if (currentPlayer.getDeckList().size() == 0) {//switch
+                    tempHand = currentPlayer;
+                    currentPlayer = otherPlayer;
+                    otherPlayer = tempHand;
+                    break;
+                }
+
+                Card lastPlayed = currentPlayer.makeMove(this, "Play");
+                if (lastPlayed.getId() == 99) {
+                    System.out.println(currentPlayer + " had nothing to play");
+                    if (wasNoPlay) {
+                        playing = false;
+                    }
+                    wasNoPlay = true;
+                } else if (discardManager.getValueSum() + lastPlayed.getId() > 31) {
+                    System.out.println("Wrong card played");
+                    if (wasNoPlay) {
+                        playing = false;
+                    }
+                    wasNoPlay = true;
+                } else {
+                    discardManager.addCard(lastPlayed);
+                    wasNoPlay = false;
+                    lastPlayer = currentPlayer;
+                    //e.getCribbagePlayScore(currentPlayer, discardManager);
+                    int score = e.getCribbagePlayScore(currentPlayer, discardManager);
+                    if (score != 0){
+                        System.out.println("got the score of: " + score);
+                    }
+                }
+
                 tempHand = currentPlayer;
                 currentPlayer = otherPlayer;
                 otherPlayer = tempHand;
             }
-
-            Card lastPlayed = currentPlayer.makeMove(this, "Play");
-            if (discardManager.getValueSum() + lastPlayed.getId() > 31){
-                if (wasNoPlay){
-                    playing = false;
-                    //TODO: implement +1 Score after last play
-                }
-                wasNoPlay = true;
-                //System.out.println("ERROR - HIGHER THAN 31!!");
-            }
-            else{
-                discardManager.addCard(lastPlayed);
-                wasNoPlay = false;
-            }
-
-            tempHand = currentPlayer;
-            currentPlayer = otherPlayer;
-            otherPlayer = tempHand;
-
-
-
-
+            lastPlayer.win(1);
+            System.out.println(lastPlayer + " played the last card");
+            System.out.println();
         }
     }
-
-
-        //players.get(0).makeMove(this, "DiscardMove");
-        //TODO: implement discard piles, like a pot thing, the cribManager, etc!!
 
 
     public void pokerRound(){

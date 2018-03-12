@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a38f6d84-f030-4c4b-9c2c-63c201207c26" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/DecisionMaking/AI.class" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/DecisionMaking/AI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Card.class" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Card.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Deck.class" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Deck.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Evaluator.class" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Evaluator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Game.class" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Game.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DecisionMaking/AI.java" afterPath="$PROJECT_DIR$/src/DecisionMaking/AI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Card.java" afterPath="$PROJECT_DIR$/src/core/Card.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Deck.java" afterPath="$PROJECT_DIR$/src/core/Deck.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Evaluator.java" afterPath="$PROJECT_DIR$/src/core/Evaluator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Game.java" afterPath="$PROJECT_DIR$/src/core/Game.java" />
     </list>
@@ -24,7 +29,7 @@
     <favorites_list name="Cribbage0.1" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5812956">
+    <splitter split-orientation="horizontal" split-proportion="0.48090947">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
@@ -37,25 +42,28 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Evaluator.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Evaluator.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/core/Evaluator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="12" column="70" lean-forward="false" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
+                <state relative-caret-position="442">
+                  <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
                   <folding>
-                    <element signature="method#getCribbageHandScore#0;class#Evaluator#0" expanded="false" />
+                    <element signature="imports" expanded="true" />
                     <element signature="method#getPokerScore#0;class#Evaluator#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/core/Game.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="884">
-                  <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-                  <folding />
+                <state relative-caret-position="418">
+                  <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#389#395#0" expanded="true" />
+                    <element signature="method#pokerRound#0;class#Game#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -64,11 +72,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Card.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/core/Card.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="559">
-                  <caret line="99" column="22" lean-forward="false" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="22" />
+                <state relative-caret-position="2329">
+                  <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
                   <folding>
                     <element signature="method#isGreater#0;class#Card#0" expanded="false" />
                     <element signature="method#isEqual#0;class#Card#0" expanded="false" />
@@ -90,16 +98,15 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Deck.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Deck.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/core/Deck.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+                <state relative-caret-position="782">
+                  <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
                   <folding>
+                    <element signature="imports" expanded="true" />
                     <element signature="method#Deck#0;class#Deck#0" expanded="false" />
                     <element signature="method#Deck#1;class#Deck#0" expanded="false" />
-                    <element signature="e#2812#2813#0" expanded="true" />
-                    <element signature="e#2843#2844#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -108,8 +115,8 @@
           <file leaf-file-name="AI.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/DecisionMaking/AI.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+                <state relative-caret-position="408">
+                  <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -175,15 +182,15 @@
         <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Hand.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/core/Deck.java" />
         <option value="$PROJECT_DIR$/src/DecisionMaking/Human.java" />
-        <option value="$PROJECT_DIR$/src/DecisionMaking/AI.java" />
         <option value="$PROJECT_DIR$/src/DecisionMaking/DecisionMaker.java" />
         <option value="$PROJECT_DIR$/src/core/Hand.java" />
         <option value="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/java/lang/System.java" />
         <option value="$PROJECT_DIR$/src/core/Card.java" />
-        <option value="$PROJECT_DIR$/src/core/Game.java" />
+        <option value="$PROJECT_DIR$/src/DecisionMaking/AI.java" />
+        <option value="$PROJECT_DIR$/src/core/Deck.java" />
         <option value="$PROJECT_DIR$/src/core/Evaluator.java" />
+        <option value="$PROJECT_DIR$/src/core/Game.java" />
       </list>
     </option>
   </component>
@@ -214,6 +221,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,7 +251,6 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -544,11 +551,15 @@
       <workItem from="1517327394251" duration="5858000" />
       <workItem from="1518010356793" duration="2298000" />
       <workItem from="1520515830880" duration="7486000" />
+      <workItem from="1520534359805" duration="10076000" />
+      <workItem from="1520624095226" duration="8194000" />
+      <workItem from="1520786065712" duration="9272000" />
+      <workItem from="1520860917935" duration="710000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54755000" />
+    <option name="totallyTimeSpent" value="83007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -556,15 +567,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27705297" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.45740598" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="0" y="440" width="1097" height="377" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.3599386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="0" y="440" width="1097" height="377" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847276" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08945312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -573,13 +583,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3998465" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0030698387" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847276" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -600,7 +611,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -613,7 +624,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="108" column="47" lean-forward="false" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="47" />
-          <folding />
+          <folding>
+            <element signature="e#389#395#0" expanded="true" />
+            <element signature="method#pokerRound#0;class#Game#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -634,10 +648,9 @@
         <state relative-caret-position="0">
           <caret line="83" column="35" lean-forward="false" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#Deck#0;class#Deck#0" expanded="false" />
             <element signature="method#Deck#1;class#Deck#0" expanded="false" />
-            <element signature="e#2812#2813#0" expanded="true" />
-            <element signature="e#2843#2844#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -675,7 +688,7 @@
         <state relative-caret-position="0">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="method#getCribbageHandScore#0;class#Evaluator#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#getPokerScore#0;class#Evaluator#0" expanded="false" />
           </folding>
         </state>
@@ -693,7 +706,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="19" column="15" lean-forward="false" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
-          <folding />
+          <folding>
+            <element signature="e#389#395#0" expanded="true" />
+            <element signature="method#pokerRound#0;class#Game#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -722,10 +738,9 @@
         <state relative-caret-position="0">
           <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#Deck#0;class#Deck#0" expanded="false" />
             <element signature="method#Deck#1;class#Deck#0" expanded="false" />
-            <element signature="e#2812#2813#0" expanded="true" />
-            <element signature="e#2843#2844#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -778,7 +793,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="e#389#395#0" expanded="true" />
+            <element signature="method#pokerRound#0;class#Game#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -787,7 +805,7 @@
         <state relative-caret-position="0">
           <caret line="12" column="39" lean-forward="false" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
           <folding>
-            <element signature="method#getCribbageHandScore#0;class#Evaluator#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#getPokerScore#0;class#Evaluator#0" expanded="false" />
           </folding>
         </state>
@@ -810,10 +828,9 @@
         <state relative-caret-position="0">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="56" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#Deck#0;class#Deck#0" expanded="false" />
             <element signature="method#Deck#1;class#Deck#0" expanded="false" />
-            <element signature="e#2812#2813#0" expanded="true" />
-            <element signature="e#2843#2844#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -851,7 +868,7 @@
         <state relative-caret-position="0">
           <caret line="12" column="39" lean-forward="false" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
           <folding>
-            <element signature="method#getCribbageHandScore#0;class#Evaluator#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#getPokerScore#0;class#Evaluator#0" expanded="false" />
           </folding>
         </state>
@@ -877,7 +894,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="e#389#395#0" expanded="true" />
+            <element signature="method#pokerRound#0;class#Game#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -898,10 +918,9 @@
         <state relative-caret-position="0">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#Deck#0;class#Deck#0" expanded="false" />
             <element signature="method#Deck#1;class#Deck#0" expanded="false" />
-            <element signature="e#2812#2813#0" expanded="true" />
-            <element signature="e#2843#2844#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -938,7 +957,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="e#389#395#0" expanded="true" />
+            <element signature="method#pokerRound#0;class#Game#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -963,7 +985,7 @@
         <state relative-caret-position="0">
           <caret line="189" column="44" lean-forward="false" selection-start-line="189" selection-start-column="42" selection-end-line="189" selection-end-column="44" />
           <folding>
-            <element signature="method#getCribbageHandScore#0;class#Evaluator#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#getPokerScore#0;class#Evaluator#0" expanded="false" />
           </folding>
         </state>
@@ -986,10 +1008,9 @@
         <state relative-caret-position="0">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#Deck#0;class#Deck#0" expanded="false" />
             <element signature="method#Deck#1;class#Deck#0" expanded="false" />
-            <element signature="e#2812#2813#0" expanded="true" />
-            <element signature="e#2843#2844#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1024,29 +1045,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Deck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding>
-            <element signature="method#Deck#0;class#Deck#0" expanded="false" />
-            <element signature="method#Deck#1;class#Deck#0" expanded="false" />
-            <element signature="e#2812#2813#0" expanded="true" />
-            <element signature="e#2843#2844#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DecisionMaking/AI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/java/lang/System.java" />
     <entry file="file://$PROJECT_DIR$/src/DecisionMaking/DecisionMaker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1063,19 +1062,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/java/lang/System.java" />
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Card.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="99" column="22" lean-forward="false" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="22" />
+        <state relative-caret-position="2329">
+          <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
           <folding>
             <element signature="method#isGreater#0;class#Card#0" expanded="false" />
             <element signature="method#isEqual#0;class#Card#0" expanded="false" />
@@ -1084,21 +1074,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/DecisionMaking/AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        <state relative-caret-position="408">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Deck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Deck#0;class#Deck#0" expanded="false" />
+            <element signature="method#Deck#1;class#Deck#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Evaluator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="70" lean-forward="false" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
+        <state relative-caret-position="442">
+          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
           <folding>
-            <element signature="method#getCribbageHandScore#0;class#Evaluator#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#getPokerScore#0;class#Evaluator#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+          <folding>
+            <element signature="e#389#395#0" expanded="true" />
+            <element signature="method#pokerRound#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>

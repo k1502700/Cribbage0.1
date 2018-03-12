@@ -20,7 +20,7 @@ public class AI extends DecisionMaker{
                 }
             }
             System.out.println(currentPlayer + " has no cards left less than 31");
-            return new Card("A", "S");
+            return new Card("X", "S");
         }
         return currentPlayer.playFirstCard();
     }
