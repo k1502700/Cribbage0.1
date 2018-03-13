@@ -182,6 +182,10 @@ public class Card {
         return id;
     }
 
+    public String getSuit() {
+        return suit;
+    }
+
     @Override
     public String toString(){
         return face + suit;

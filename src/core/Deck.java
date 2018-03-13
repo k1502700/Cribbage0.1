@@ -74,7 +74,7 @@ public class Deck {
             @Override
             public int compare(Card o1, Card o2) {
                 return ((Integer)o1.id).compareTo((Integer)o2.id);
-            }
+            }//TODO: is this a problem? (no suit comparison)
         });
     }
 
@@ -105,6 +105,17 @@ public class Deck {
 
     public void addCard(Card c){
         deckList.add(c);
+    }
+
+    public Card playGivenCard(Card card){
+        for (Card c: deckList){
+            if (card.id == c.id && card.suit == c.suit){
+                deckList.remove(c);
+                return c;
+            }
+        }
+        System.out.println("Error - given card not found");
+        return card;
     }
 
     public void discardAll(){

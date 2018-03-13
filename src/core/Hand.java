@@ -44,22 +44,18 @@ public class Hand extends Deck{
         deckList.add(c);
     }
 
+    public void drawMultiple(ArrayList<Card> cList){
+        for (Card c: cList){
+            draw(c);
+        }
+    }
+
     public Card playFirstCard(){
         //TODO: implement chack if there are cards to discard
         System.out.println(name+ " plays: " + deckList.get(deckList.size()-1));
         return deckList.remove(deckList.size()-1);
     }
 
-    public Card playGivenCard(Card card){
-        for (Card c: deckList){
-            if (card == c){
-                deckList.remove(c);
-                return c;
-            }
-        }
-        System.out.println("Error - given card not found");
-        return card;
-    }
 
     public void win(){
         score++;
@@ -71,6 +67,10 @@ public class Hand extends Deck{
 
     public void win(int score){
         this.score+=score;
+    }
+
+    public int getScore(){
+        return score;
     }
 
     @Override

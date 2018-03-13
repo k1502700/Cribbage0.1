@@ -34,6 +34,8 @@ public class Evaluator {
 
         int straightScore = straight(deckList);
         if (straightScore != 0) {
+            currentPlayer.win(straightScore);
+
             System.out.println("Found " + straightScore + " Straight");
         }
 
@@ -125,6 +127,7 @@ public class Evaluator {
 
 
     public int getCribbageHandScore(Hand currentPlayer, Card flipCard){
+        int initialScore = currentPlayer.score;
 
         System.out.println("Inspecting " + currentPlayer + " + [" + flipCard + "]");
 
@@ -428,8 +431,9 @@ public class Evaluator {
         }
 
         System.out.println("Inspected " + currentPlayer + " + [" + flipCard + "]");
+        int finalScore = currentPlayer.getScore() - initialScore;
 
-        return 1;
+        return finalScore;
     }
 
     public int getPokerScore(Hand hand){

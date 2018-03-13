@@ -197,6 +197,14 @@ public class Game {
         return players;
     }
 
+    public ArrayList<Card> getDiscardPile() {
+        return (ArrayList<Card>) discardManager.deckList.clone();
+    }
+
+    public Evaluator getEvaluator() {
+        return e;
+    }
+
     public int getCount(){
         return discardManager.getValueSum();
     }
