@@ -32,6 +32,7 @@ public class AI extends DecisionMaker{
 
 
         if (moveType == "DiscardMove"){
+            System.out.println("Discard Analysis");
             if (futureSet){
                 futureSet = false;
                 return currentPlayer.playGivenCard(futureMove);
@@ -79,7 +80,7 @@ public class AI extends DecisionMaker{
 
             Deck possibleFlipCards = new Deck(true);
             for (Card c: currentPlayer.getDeckList()){
-                possibleFlipCards.playGivenCard(c);
+                possibleFlipCards.discardCard(c);
             }
 
             ArrayList<Card> flipcards = possibleFlipCards.getDeckList();
@@ -87,7 +88,7 @@ public class AI extends DecisionMaker{
             ArrayList<Integer> maxScores = new ArrayList<>();
             ArrayList<Integer> flipScores = new ArrayList<>();
             Hand dummyPlayer = new Hand();
-            Evaluator e = new Evaluator("Cribbage");
+            Evaluator e = new Evaluator("Cribbage", true);
 
             for (int p = 0; p < potentialHnads.size(); p++) {
                 for (int f = 0; f < flipcards.size(); f++){
@@ -103,6 +104,20 @@ public class AI extends DecisionMaker{
                 averageScores.add(a);
             }
             System.out.println(averageScores);
+
+
+            float maxAverage = -1;
+            Card toBePlayed = new Card("X");
+            for (int i = 0; i < averageScores.size(); i++){
+                if (averageScores.get(i) > maxAverage){
+                    maxAverage = averageScores.get(i);
+                    toBePlayed = potentialDiscards.get(i).get(0);
+                    futureMove = potentialDiscards.get(i).get(1);
+                    futureSet = true;
+                }
+            }
+
+            return currentPlayer.playGivenCard(toBePlayed);
 
 
 

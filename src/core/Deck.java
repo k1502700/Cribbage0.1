@@ -99,15 +99,7 @@ public class Deck {
         return deckList.remove(0);
     }
 
-    public Boolean discardCard(Card c){
-        return deckList.remove(c);
-    }
-
-    public void addCard(Card c){
-        deckList.add(c);
-    }
-
-    public Card playGivenCard(Card card){
+    public Card discardCard(Card card){
         for (Card c: deckList){
             if (card.id == c.id && card.suit == c.suit){
                 deckList.remove(c);
@@ -116,6 +108,10 @@ public class Deck {
         }
         System.out.println("Error - given card not found");
         return card;
+    }
+
+    public void addCard(Card c){
+        deckList.add(c);
     }
 
     public void discardAll(){

@@ -51,11 +51,24 @@ public class Hand extends Deck{
     }
 
     public Card playFirstCard(){
-        //TODO: implement chack if there are cards to discard
-        System.out.println(name+ " plays: " + deckList.get(deckList.size()-1));
-        return deckList.remove(deckList.size()-1);
+        if (deckList.size() > 0) {
+            System.out.println(name + " plays: " + deckList.get(deckList.size() - 1));
+            return deckList.remove(deckList.size() - 1);
+        }
+        else return new Card("X");
     }
 
+    public Card playGivenCard(Card card){
+        for (Card c: deckList){
+            if (card.id == c.id && card.suit == c.suit){
+                System.out.println(name+ " plays: " + c);
+                deckList.remove(c);
+                return c;
+            }
+        }
+        System.out.println("Error - given card not found");
+        return card;
+    }
 
     public void win(){
         score++;
