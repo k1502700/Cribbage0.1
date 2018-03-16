@@ -23,8 +23,8 @@ public class Game {
     Hand hand2;
     Hand hand3;
     Hand hand4;
-    Hand dealer;
-    Hand nonDealer;//TODO: later implement switching - now only 2 player mode
+    public Hand dealer;
+    Hand nonDealer;
 
     ArrayList<Hand> players = new ArrayList<>();
 

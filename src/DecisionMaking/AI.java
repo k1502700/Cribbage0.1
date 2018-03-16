@@ -1,11 +1,6 @@
 package DecisionMaking;
 
-import core.Card;
-import core.Deck;
-import core.Game;
-import core.Hand;
-import core.Evaluator;
-
+import core.*;
 import java.util.ArrayList;
 
 public class AI extends DecisionMaker{
@@ -18,6 +13,7 @@ public class AI extends DecisionMaker{
 
     @Override
     public Card makeMove(Game gameState, String moveType, Hand currentPlayer) {
+
         if (moveType == "Play"){
             int count = gameState.getCount();
             for (Card c: currentPlayer.getDeckList()){
@@ -29,7 +25,6 @@ public class AI extends DecisionMaker{
             System.out.println(currentPlayer + " has no cards left less than 31");
             return new Card("X", "S");
         }
-
 
         if (moveType == "DiscardMove"){
             System.out.println("Discard Analysis");
@@ -58,17 +53,6 @@ public class AI extends DecisionMaker{
                         }
                     }
 
-
-
-
-//
-//                    for (Card c: currentDiscard){
-//                        for (Card d: potentialHand){
-//                            if (c.getId() == d.getId() && c.getSuit() == d.getSuit()){
-//                                potentialHand.remove(d);
-//                            }
-//                        }
-//                    }
                     potentialHnads.add((ArrayList<Card>) potentialHand.clone());
                     potentialDiscards.add((ArrayList<Card>) currentDiscard.clone());
                     currentDiscard.remove(viableMoves.get(j));
@@ -83,26 +67,63 @@ public class AI extends DecisionMaker{
                 possibleFlipCards.discardCard(c);
             }
 
-            ArrayList<Card> flipcards = possibleFlipCards.getDeckList();
+            ArrayList<Card> flipCards = possibleFlipCards.getDeckList();
             ArrayList<Float> averageScores = new ArrayList<>();
+            ArrayList<Float> averageFlipScores = new ArrayList<>();
             ArrayList<Integer> maxScores = new ArrayList<>();
             ArrayList<Integer> flipScores = new ArrayList<>();
             Hand dummyPlayer = new Hand();
             Evaluator e = new Evaluator("Cribbage", true);
 
+            ArrayList<Float> averageCribScores = new ArrayList<>();
+
             for (int p = 0; p < potentialHnads.size(); p++) {
-                for (int f = 0; f < flipcards.size(); f++){
-                    dummyPlayer = new Hand();
+                for (int f = 0; f < flipCards.size(); f++){
+                    dummyPlayer = new Hand("Dummy Player");
                     dummyPlayer.drawMultiple((ArrayList<Card>) potentialHnads.get(p).clone());
-                    flipScores.add(f, e.getCribbageHandScore(dummyPlayer, flipcards.get(f)));
+                    Deck unknownDeck = new Deck(true);
+                    for (Card d: currentPlayer.getDeckList()){
+                        unknownDeck.discardCard(d);
+                    }
+                    unknownDeck.discardCard(flipCards.get(f));
+
+                    ArrayList<Integer> cribScores = new ArrayList<>();
+                    for (int g = 0; g < unknownDeck.getDeckList().size()-1; g++){
+                        for (int h = g + 1; h < unknownDeck.getDeckList().size(); h++) {
+                            Hand crib = new Hand("Crib");
+                            crib.draw(unknownDeck.getDeckList().get(g));
+                            crib.draw(unknownDeck.getDeckList().get(h));
+                            crib.drawMultiple(potentialDiscards.get(p));
+                            cribScores.add(e.getCribbageHandScore(crib, flipCards.get(f)));
+                        }
+                    }
+                    float a = 0;
+                    for (int i: cribScores){
+                        a += i;
+                    }
+                    a = a/cribScores.size();
+                    averageCribScores.add(a);
+                    flipScores.add(f, e.getCribbageHandScore(dummyPlayer, flipCards.get(f)));
                 }
                 float a = 0;
                 for (int i: flipScores){
                     a += i;
                 }
                 a = a/flipScores.size();
-                averageScores.add(a);
+                float c = 0;
+                for (float i: averageCribScores){
+                    c += i;
+                }
+                c = c/ averageCribScores.size();
+                if (gameState.dealer.name == currentPlayer.name){
+                    averageScores.add(a + c);
+                }
+                else{
+                    averageScores.add(a - c);
+                }
+                System.out.print(c+ " ");
             }
+            System.out.println();
             System.out.println(averageScores);
 
 
@@ -116,116 +137,9 @@ public class AI extends DecisionMaker{
                     futureSet = true;
                 }
             }
-
             return currentPlayer.playGivenCard(toBePlayed);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//            int count = gameState.getCount();
-//            for (Card c: currentPlayer.getDeckList()){
-//                if (c.getValue() + count <= 31){
-//                    viableMoves.add(c);
-////                    System.out.println(currentPlayer + " played " + c + ", the count is: " + (count+c.getValue()));
-////                    return currentPlayer.playGivenCard(c);
-//                }
-            }
-//
-//            int maxScore = 0;
-//            int maxAverage = 0;
-//            ArrayList
-//
-//            Deck possibleFlipCards = new Deck(true);
-//            for (Card c: currentPlayer.getDeckList()){
-//                possibleFlipCards.playGivenCard(c);
-//            }
-//            int score = 0;
-//            for (Card c: viableMoves){
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//                for (Card f: possibleFlipCards.getDeckList())
-//                    score = gameState.getEvaluator().getCribbageHandScore(currentPlayer, f);
-//                    if (score > maxScore){
-//
-//                    }
-//            }
-//
-//
-//
-//        }
-
-
-
-
-
-
-
-
-
+        }
 
         return currentPlayer.playFirstCard();
     }
-
-    /*
-        //System.out.print("AI TRIGGERED: ");
-        Card returnCard;
-
-        switch (moveType){
-            case "DiscardMove":
-                //TODO: Find Jesus
-                ArrayList<Card> handList = currentPlayer.getDeckList();
-                Collections.shuffle(handList);
-//                returnCard = handList.get(0);
-                if (currentPlayer.discardCard(handList.get(0))){
-                    return handList.get(0);
-                }
-                else{
-                    System.out.println("Something went wrong while trying to discard a card (AI.java)");
-                }
-
-
-
-                break;
-            default:
-                System.out.println("No specific move set found (AI.java)");
-                break;
-        }
-
-
-
-
-        return new Card("0");
-    }*/
-
 }

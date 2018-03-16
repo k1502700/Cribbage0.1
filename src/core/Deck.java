@@ -90,7 +90,7 @@ public class Deck {
         return suits;
     }
 
-    public ArrayList<Card> shuffleDeck(){//TODO: only shuffles
+    public ArrayList<Card> shuffleDeck(){
         shuffle();
         return getDeckList();
     }

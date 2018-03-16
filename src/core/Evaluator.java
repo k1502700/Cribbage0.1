@@ -31,7 +31,6 @@ public class Evaluator {
     public int getCribbagePlayScore(Hand currentPlayer, Deck discardDeck){
         //TODO: CAREFUL!! will give anyone points if they didn't play a card last turn
         //TODO: only call after successful play
-        //TODO: implement crib
 
         //------------Pair-------------
         ArrayList<Card> deckList = discardDeck.getDeckList();
@@ -52,7 +51,6 @@ public class Evaluator {
         int straightScore = straight(deckList);
         if (straightScore != 0) {
             currentPlayer.win(straightScore);
-
             originalStream.println("Found " + straightScore + " Straight");
         }
 
@@ -114,8 +112,6 @@ public class Evaluator {
         return score;
     }
 
-
-
     public boolean isStraight(ArrayList<Card> deckIn){
         ArrayList<Card> deck = (ArrayList<Card>) deckIn.clone();
         deck.sort(new Comparator<Card>() {
@@ -142,15 +138,12 @@ public class Evaluator {
         else return 1;
     }
 
-
     public int getCribbageHandScore(Hand currentPlayer, Card flipCard){
         int initialScore = currentPlayer.score;
 
         originalStream.println("Inspecting " + currentPlayer + " + [" + flipCard + "]");
 
-        if (currentPlayer.name == "Crib"){
-            originalStream.println("Found the Crib");
-        }
+
 
         Hand calculator = new Hand("Calculator");
 
@@ -158,7 +151,12 @@ public class Evaluator {
             calculator.addCard(c);
         }
 
-        calculator.addCard(flipCard);
+        if (currentPlayer.name == "Crib"){
+            originalStream.println("Found the Crib");
+        }
+        else {
+            calculator.addCard(flipCard);
+        }
 
         calculator.sort();
 
@@ -343,6 +341,7 @@ public class Evaluator {
         int numberofD = 0;
         int numberofC = 0;
 
+        //noinspection Duplicates
         for (Card card: cList) {
             switch (card.suit){
                 case "S":
@@ -489,9 +488,6 @@ public class Evaluator {
 
         for (Card card: cList){
             switch (card.face){
-                case "1":   //TODO: This is wrong
-                    numberof2++;
-                    break;
                 case "2":
                     numberof2++;
                     break;
@@ -556,6 +552,7 @@ public class Evaluator {
         int numberofD = 0;
         int numberofC = 0;
 
+        //noinspection Duplicates
         for (Card card: cList) {
             switch (card.suit){
                 case "S":
