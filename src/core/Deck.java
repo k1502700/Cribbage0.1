@@ -114,6 +114,12 @@ public class Deck {
         deckList.add(c);
     }
 
+    public void addMultiple(ArrayList<Card> cList){
+        for (Card c: cList){
+            addCard(c);
+        }
+    }
+
     public void discardAll(){
         while (deckList.size() > 0){
             deckList.remove(0);

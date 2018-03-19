@@ -13,8 +13,7 @@ public class AI extends DecisionMaker{
 
     @Override
     public Card makeMove(Game gameState, String moveType, Hand currentPlayer) {
-
-        if (moveType == "Play"){
+        if (moveType == "Play_Old"){
             int count = gameState.getCount();
             for (Card c: currentPlayer.getDeckList()){
                 if (c.getValue() + count <= 31){
@@ -25,6 +24,55 @@ public class AI extends DecisionMaker{
             System.out.println(currentPlayer + " has no cards left less than 31");
             return new Card("X", "S");
         }
+
+
+
+        if (moveType == "Play"){
+
+            Evaluator e = new Evaluator("Cribbage", true);
+            int count = gameState.getCount();
+            ArrayList<Card> deckList = (ArrayList<Card>) currentPlayer.getDeckList().clone();
+            ArrayList<Card> viableMoves = new ArrayList<>();
+            ArrayList<Integer> scores = new ArrayList<>();
+
+            for (Card c: deckList){
+                if (c.getValue() + count <= 31){
+                    viableMoves.add(c);
+//                    System.out.println(currentPlayer + " played " + c + ", the count is: " + (count+c.getValue()));
+//                    return currentPlayer.playGivenCard(c);
+                }
+            }
+
+//            System.out.println("viablemoves: " + viableMoves);
+
+            if (viableMoves.size() < 1){
+                System.out.println(currentPlayer + " has no cards left less than 31");
+                return new Card("X", "S");
+            }
+
+//            System.out.println(viableMoves);
+            for (Card c: viableMoves){
+                Deck discardDeck = new Deck(false);
+                discardDeck.addMultiple((ArrayList<Card>) gameState.getDiscardPile().clone());
+                discardDeck.addCard(c);
+                Hand dummyPlayer = new Hand("DummyPlayer");
+                dummyPlayer.drawMultiple(deckList);
+                scores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck));
+            }
+
+//            System.out.println(scores);
+            Card returnCard = viableMoves.get(0);
+            int max = -1;
+            for (int i = 0; i < viableMoves.size(); i++){
+                if (scores.get(i) > max){
+                    max = scores.get(i);
+                    returnCard = viableMoves.get(i);
+                }
+            }
+            return currentPlayer.playGivenCard(returnCard);
+        }
+
+
 
         if (moveType == "DiscardMove"){
             System.out.println("Discard Analysis");

@@ -5,10 +5,8 @@ import java.util.ArrayList;
 public class Game {
 
     public Game(){
-        for (int i = 0; i < 1; i++) {
-            System.out.println();
-            System.out.println("Round: " + i);
-            cribbageRound();
+        for (int i = 1; i < 4; i++) {
+            cribbageRound(i);
         }
     }
 
@@ -50,6 +48,12 @@ public class Game {
         nonDealer = hand2;
     }
 
+    public void cribbageRound(int round) {
+        System.out.println("========== Round: " + round + " ==========");
+        cribbageRound();
+        System.out.println("======= End of round " + round + " =======");
+        System.out.println();
+    }
 
     public void cribbageRound() {
 
@@ -69,9 +73,9 @@ public class Game {
         System.out.println(players);
         for (Hand player : players) {
             cribManager.addCard(
-                    player.makeMove(this, "DiscardMove"));
+                    player.makeMove(this, "DiscardMoveX"));
             cribManager.addCard(
-                    player.makeMove(this, "DiscardMove"));
+                    player.makeMove(this, "DiscardMoveX"));
         }
         cribManager.sort();
         System.out.print(players + " --- ");
@@ -113,6 +117,7 @@ public class Game {
             discardManager.discardAll();
             if (firstRound){
                 discardManager.addCard(firstCard);
+                System.out.println("Flip Card: " + firstCard);
                 firstRound = false;
             }
 
@@ -123,11 +128,13 @@ public class Game {
             while (playing) {
 
                 if (dealer.getDeckList().size() == 0 && nonDealer.getDeckList().size() == 0) {
+//                    System.out.println("OutOfCards");
                     outOfCards = true;
                     break;
                 }
 
                 if (currentPlayer.getDeckList().size() == 0) {//switch
+//                    System.out.println("Switch");
                     tempHand = currentPlayer;
                     currentPlayer = otherPlayer;
                     otherPlayer = tempHand;
@@ -153,9 +160,9 @@ public class Game {
                     lastPlayer = currentPlayer;
                     //e.getCribbagePlayScore(currentPlayer, discardManager);
                     int score = e.getCribbagePlayScore(currentPlayer, discardManager);
-                    if (score != 0){
-                        System.out.println("got the score of: " + score);
-                    }
+//                    if (score != 0){
+//                        System.out.println("got the score of: " + score);
+//                    }
                 }
 
                 tempHand = currentPlayer;
@@ -165,7 +172,9 @@ public class Game {
             lastPlayer.win(1);
             System.out.println(lastPlayer + " played the last card");
             System.out.println();
+
         }
+        System.out.println("The current score is: " + hand1 + " <===> " + hand2);
     }
 
 

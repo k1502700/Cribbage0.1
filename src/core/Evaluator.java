@@ -152,7 +152,7 @@ public class Evaluator {
         }
 
         if (currentPlayer.name == "Crib"){
-            originalStream.println("Found the Crib");
+//            originalStream.println("Found the Crib");
         }
         else {
             calculator.addCard(flipCard);
@@ -383,25 +383,29 @@ public class Evaluator {
         //------------sum15-------------
 
         if (cList.size() == 4){
-            originalStream.println("scanning size 4");
-            int c1 = cList.get(0).getValue();
-            int c2 = cList.get(1).getValue();
-            int c3 = cList.get(2).getValue();
-            int c4 = cList.get(3).getValue();
+            int v1 = cList.get(0).getValue();
+            int v2 = cList.get(1).getValue();
+            int v3 = cList.get(2).getValue();
+            int v4 = cList.get(3).getValue();
 
-            if (c1 + c2 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2);}
-            if (c1 + c3 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c3);}
-            if (c1 + c4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c4);}
-            if (c2 + c3 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c2 + c3);}
-            if (c2 + c4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c2 + c4);}
-            if (c3 + c4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c3 + c4);}
+            Card c1 = cList.get(0);
+            Card c2 = cList.get(1);
+            Card c3 = cList.get(2);
+            Card c4 = cList.get(3);
 
-            if (c1 + c2 + c3 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2 + c3);}
-            if (c1 + c2 + c4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2 + c4);}
-            if (c1 + c3 + c4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c3 + c4);}
-            if (c2 + c3 + c4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c2 + c3 + c4);}
+            if (v1 + v2 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2);}
+            if (v1 + v3 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c3);}
+            if (v1 + v4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c4);}
+            if (v2 + v3 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c2 + c3);}
+            if (v2 + v4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c2 + c4);}
+            if (v3 + v4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c3 + c4);}
 
-            if (c1 + c2 + c3 + c4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2 + c3 + c4);}
+            if (v1 + v2 + v3 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2 + c3);}
+            if (v1 + v2 + v4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2 + c4);}
+            if (v1 + v3 + v4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c3 + c4);}
+            if (v2 + v3 + v4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c2 + c3 + c4);}
+
+            if (v1 + v2 + v3 + v4 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2 + c3 + c4);}
         }
 
         else if(cList.size() == 5){
@@ -447,6 +451,7 @@ public class Evaluator {
         }
 
         originalStream.println("Inspected " + currentPlayer + " + [" + flipCard + "]");
+        System.out.println();
         int finalScore = currentPlayer.getScore() - initialScore;
 
         return finalScore;

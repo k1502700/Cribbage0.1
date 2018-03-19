@@ -61,7 +61,7 @@ public class Hand extends Deck{
     public Card playGivenCard(Card card){
         for (Card c: deckList){
             if (card.id == c.id && card.suit == c.suit){
-                System.out.println(name+ " plays: " + c);
+                System.out.println(this+ " plays: " + c);
                 deckList.remove(c);
                 return c;
             }
@@ -88,6 +88,6 @@ public class Hand extends Deck{
 
     @Override
     public String toString() {
-        return name + "'s Deck: " + deckList.toString() + " (" + score + "Pts)";
+        return name + ": " + deckList.toString() + " (" + score + "Pts)";
     }
 }
