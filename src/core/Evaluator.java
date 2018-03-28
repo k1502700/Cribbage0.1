@@ -145,7 +145,7 @@ public class Evaluator {
 
 
 
-        Hand calculator = new Hand("Calculator");
+        Hand calculator = new Hand("Calculator", new Game(true));
 
         for (Card c: currentPlayer.getDeckList()){
             calculator.addCard(c);
@@ -451,7 +451,7 @@ public class Evaluator {
         }
 
         originalStream.println("Inspected " + currentPlayer + " + [" + flipCard + "]");
-        System.out.println();
+        originalStream.println();
         int finalScore = currentPlayer.getScore() - initialScore;
 
         return finalScore;

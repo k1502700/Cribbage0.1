@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Hand extends Deck{
     public String name;
     public DecisionMaker dm = new AI();
+    public Game game;
     public int points = 0; //used for gathered points during the game
     public int score = 0; //used for individual hand scores
     public Hand(){
@@ -17,13 +18,15 @@ public class Hand extends Deck{
         dm = new AI();
     }
 
-    public Hand (String name){
+    public Hand (String name, Game game){
         this.name = name;
+        this.game = game;
         deckList = new ArrayList<>();
         dm = new AI();
     }
-    public Hand (String name, Boolean isHuman){
+    public Hand (String name, Boolean isHuman, Game game){
         this.name = name;
+        this.game = game;
         deckList = new ArrayList<>();
         if (isHuman){
             dm = new Human();
@@ -58,6 +61,13 @@ public class Hand extends Deck{
         else return new Card("X");
     }
 
+    public Card silentlyPlayFirstCard(){
+        if (deckList.size() > 0) {
+            return deckList.remove(deckList.size() - 1);
+        }
+        else return new Card("X");
+    }
+
     public Card playGivenCard(Card card){
         for (Card c: deckList){
             if (card.id == c.id && card.suit == c.suit){
@@ -70,9 +80,9 @@ public class Hand extends Deck{
         return card;
     }
 
-    public void win(){
-        score++;
-    }
+//    public void win(){
+//        score++;
+//    }
 
     public void addPoints(int points){
         this.points += points;
@@ -80,6 +90,11 @@ public class Hand extends Deck{
 
     public void win(int score){
         this.score+=score;
+        if (this.score >= 121){
+//            score = 121;
+            game.endGame(this);
+            //TODO: End game
+        }
     }
 
     public int getScore(){

@@ -55,7 +55,7 @@ public class AI extends DecisionMaker{
                 Deck discardDeck = new Deck(false);
                 discardDeck.addMultiple((ArrayList<Card>) gameState.getDiscardPile().clone());
                 discardDeck.addCard(c);
-                Hand dummyPlayer = new Hand("DummyPlayer");
+                Hand dummyPlayer = new Hand("DummyPlayer", new Game(true));
                 dummyPlayer.drawMultiple(deckList);
                 scores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck));
             }
@@ -127,7 +127,7 @@ public class AI extends DecisionMaker{
 
             for (int p = 0; p < potentialHnads.size(); p++) {
                 for (int f = 0; f < flipCards.size(); f++){
-                    dummyPlayer = new Hand("Dummy Player");
+                    dummyPlayer = new Hand("Dummy Player", new Game(true));
                     dummyPlayer.drawMultiple((ArrayList<Card>) potentialHnads.get(p).clone());
                     Deck unknownDeck = new Deck(true);
                     for (Card d: currentPlayer.getDeckList()){
@@ -138,7 +138,7 @@ public class AI extends DecisionMaker{
                     ArrayList<Integer> cribScores = new ArrayList<>();
                     for (int g = 0; g < unknownDeck.getDeckList().size()-1; g++){
                         for (int h = g + 1; h < unknownDeck.getDeckList().size(); h++) {
-                            Hand crib = new Hand("Crib");
+                            Hand crib = new Hand("Crib", new Game(true));
                             crib.draw(unknownDeck.getDeckList().get(g));
                             crib.draw(unknownDeck.getDeckList().get(h));
                             crib.drawMultiple(potentialDiscards.get(p));
