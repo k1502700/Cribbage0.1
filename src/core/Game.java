@@ -148,7 +148,6 @@ public class Game {
                 firstRound = false;
             }
 
-
             Boolean wasNoPlay = false;
             playing = true;
             Hand lastPlayer = hand1;

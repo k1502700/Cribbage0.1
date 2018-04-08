@@ -126,7 +126,7 @@ public class AI extends DecisionMaker{
             ArrayList<Float> averageCribScores = new ArrayList<>();
 
             for (int p = 0; p < potentialHnads.size(); p++) {
-                for (int f = 0; f < flipCards.size(); f++){
+                for (int f = 0; f < flipCards.size(); f++){//maybe only once
                     dummyPlayer = new Hand("Dummy Player", new Game(true));
                     dummyPlayer.drawMultiple((ArrayList<Card>) potentialHnads.get(p).clone());
                     Deck unknownDeck = new Deck(true);
