@@ -13,6 +13,7 @@ public class Launcher{
     public Launcher(){
 
         boolean gotInput = false;
+        boolean ai = true;
         String inputString  = "";
         while (!gotInput) {
             System.out.println("Choose a Game Mode!");
@@ -31,13 +32,28 @@ public class Launcher{
 
                 gotInput = true;
             } else if (inputString.equals("2")) {
-
-                new Game();
+                ai = true;
                 gotInput = true;
             } else {
                 System.out.println("Invalid Input");
             }
         }
+
+        gotInput = false;
+        while (!gotInput) {
+            System.out.println("How Many Games?");
+            InputStream streamer = System.in;
+
+            InputStreamReader sr = new InputStreamReader(streamer);
+            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                inputString = input.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            playGames(Integer.parseInt(inputString));
+        }
+
 
 
 
@@ -53,7 +69,7 @@ public class Launcher{
     public void playGames(int numberofRounds){
         ArrayList<String> winners = new ArrayList<>();
         int preacherWins = 0;
-        int dennisWins = 1;
+        int dennisWins = 0;
         for (int i = 0; i < numberofRounds; i++) {
             Game game = new Game();
             winners.add(game.winner.name);

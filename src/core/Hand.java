@@ -12,6 +12,7 @@ public class Hand extends Deck{
     public Game game;
     public int points = 0; //used for gathered points during the game
     public int score = 0; //used for individual hand scores
+    public ArrayList<Card> cardsPlayed = new ArrayList<>();
     public Hand(){
         name = "";
         deckList = new ArrayList<>();
@@ -24,27 +25,29 @@ public class Hand extends Deck{
         deckList = new ArrayList<>();
         dm = new AI();
     }
-    public Hand (String name, Boolean isHuman, Game game){
+    public Hand (String name, String aiLevel, Game game){
         this.name = name;
         this.game = game;
         deckList = new ArrayList<>();
-        if (isHuman){
+        if (aiLevel == "Human"){
             dm = new Human();
         }
         else{
-            dm = new AI();
+            dm = new AI(aiLevel);
         }
     }
 
     public Card makeMove(Game gameState, String moveType){
         Card play = dm.makeMove(gameState, moveType, this);
+        //cardsPlayed.add(play);
         //System.out.println(play);
-        //deckList.remove(play);//TODO:Fix this shit
+        //deckList.remove(play);//TODO:Fix this
         return play;
     }
 
     public void draw(Card c){
         deckList.add(c);
+        cardsPlayed = new ArrayList<>();
     }
 
     public void drawMultiple(ArrayList<Card> cList){
@@ -56,14 +59,18 @@ public class Hand extends Deck{
     public Card playFirstCard(){
         if (deckList.size() > 0) {
             System.out.println(name + " plays: " + deckList.get(deckList.size() - 1));
-            return deckList.remove(deckList.size() - 1);
+            Card c = deckList.remove(deckList.size() - 1);
+            cardsPlayed.add(c);
+            return c;
         }
         else return new Card("X");
     }
 
     public Card silentlyPlayFirstCard(){
         if (deckList.size() > 0) {
-            return deckList.remove(deckList.size() - 1);
+            Card c = deckList.remove(deckList.size() - 1);
+            cardsPlayed.add(c);
+            return c;
         }
         else return new Card("X");
     }

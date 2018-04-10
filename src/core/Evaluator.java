@@ -5,6 +5,8 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Evaluator {
 
@@ -25,6 +27,12 @@ public class Evaluator {
                 }
             });
         }
+    }
+
+    public int decideCribbagePlayScore(Hand currentPlayer, Deck discardDeck, ArrayList<Card> opponetCards){
+
+
+        return 1;
     }
 
 
@@ -381,6 +389,15 @@ public class Evaluator {
         }
 
         //------------sum15-------------
+        if (cList.size() == 2){
+            int v1 = cList.get(0).getValue();
+            int v2 = cList.get(1).getValue();
+
+            Card c1 = cList.get(0);
+            Card c2 = cList.get(1);
+
+            if (v1 + v2 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2);}
+        }
 
         if (cList.size() == 4){
             int v1 = cList.get(0).getValue();

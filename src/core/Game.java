@@ -10,8 +10,8 @@ public class Game {
     public Hand winner = new Hand("DummyHand", this);
 
     public Game(){
-        hand1 = new Hand("Preacher", this);
-        hand2 = new Hand("Dennis", this);
+        hand1 = new Hand("Preacher", "Lite", this);
+        hand2 = new Hand("Dennis", "Hybrid", this);
 
         players = new ArrayList<>();
         players.add(hand1);
@@ -94,9 +94,9 @@ public class Game {
 //                    player.makeMove(this, "DiscardMoveX"));
 //        }
         cribManager.addCard(
-                hand1.makeMove(this, "DiscardMoveX"));
+                hand1.makeMove(this, "DiscardMove"));
         cribManager.addCard(
-                hand1.makeMove(this, "DiscardMoveX"));
+                hand1.makeMove(this, "DiscardMove"));
         cribManager.addCard(
                 hand2.makeMove(this, "DiscardMove"));
         cribManager.addCard(
@@ -174,7 +174,7 @@ public class Game {
                         playing = false;
                     }
                     wasNoPlay = true;
-                } else if (discardManager.getValueSum() + lastPlayed.getId() > 31) {
+                } else if (discardManager.getValueSum() + lastPlayed.getValue() > 31) {
                     System.out.println("Wrong card played");
                     if (wasNoPlay) {
                         playing = false;
