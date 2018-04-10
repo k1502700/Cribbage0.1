@@ -123,13 +123,11 @@ public class Game {
 //        e.getCribbageHandScore(hand2, firstCard);
 //        e.getCribbageHandScore(cribManager, firstCard);
 
-
 //        System.out.println(hand1.getDeckList());
 //        System.out.println(hand1Copy);
 //        hand1.playFirstCard();
 //        System.out.println(hand1.getDeckList());
 //        System.out.println(hand1Copy);
-
 
         Hand currentPlayer = nonDealer;
         Hand otherPlayer = dealer;
@@ -241,7 +239,6 @@ public class Game {
         System.out.println("======= End of round " + round + " =======");
         System.out.println();
     }
-
 
     public void pokerRound(){
         initialize();

@@ -107,7 +107,7 @@ public class AI extends DecisionMaker{
                 discardDeck.addCard(viableMoves.get(i));
                 Hand dummyPlayer = new Hand("DummyPlayer", new Game(true));
                 dummyPlayer.drawMultiple(deckList);
-                if (currentPlayer.name == "Dennis") {
+                if (currentPlayer.name == "Dennis1") {
                     scores.add((double) e.getCribbagePlayScore(dummyPlayer, discardDeck) - unknownAverages.get(i));
                 }
                 else {
@@ -586,9 +586,16 @@ public class AI extends DecisionMaker{
         }
 
         for (String s: avoidSet){
-            if (Integer.parseInt(s) == referenceCard.getId()){
-                return true;
+            try {
+                if (Integer.parseInt(s) == referenceCard.getId()){
+                    return true;
+                }
             }
+            catch (NumberFormatException e) {
+                //do nothing
+            }
+
+
         }
 
         return false;

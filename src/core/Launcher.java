@@ -71,6 +71,7 @@ public class Launcher{
         int preacherWins = 0;
         int dennisWins = 0;
         for (int i = 0; i < numberofRounds; i++) {
+            System.out.println("========== Game: " + (i + 1) + " ==========");
             Game game = new Game();
             winners.add(game.winner.name);
             if (game.winner.name == "Preacher") {
@@ -78,6 +79,7 @@ public class Launcher{
             } else {
                 dennisWins++;
             }
+            System.out.println("Dennis: " + dennisWins + " --- Preacher: " + preacherWins);
         }
         System.out.println(winners);
         System.out.println("Dennis: " + dennisWins + " --- Preacher: " + preacherWins);
