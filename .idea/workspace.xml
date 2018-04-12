@@ -8,13 +8,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Evaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Evaluator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Hand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DecisionMaking/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DecisionMaking/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DecisionMaking/DecisionMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DecisionMaking/DecisionMaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DecisionMaking/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DecisionMaking/Human.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Evaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Launcher.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -573,7 +566,7 @@
       <workItem from="1521999278083" duration="2444000" />
       <workItem from="1523361484419" duration="23679000" />
       <workItem from="1523445911318" duration="11666000" />
-      <workItem from="1523530129311" duration="14248000" />
+      <workItem from="1523530129311" duration="14959000" />
     </task>
     <task id="LOCAL-00001" summary="updates">
       <created>1520868328863</created>
@@ -624,11 +617,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523353353951</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="bug fixes and ui">
+      <created>1523550946748</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1523550946748</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185213000" />
+    <option name="totallyTimeSpent" value="185924000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -682,7 +682,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updates" />
     <MESSAGE value="play ai updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="play ai updates" />
+    <MESSAGE value="bug fixes and ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes and ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
