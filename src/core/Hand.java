@@ -10,8 +10,8 @@ public class Hand extends Deck{
     public String name;
     public DecisionMaker dm = new AI();
     public Game game;
-    public int points = 0; //used for gathered points during the game
-    public int score = 0; //used for individual hand scores
+    public int score = 0;  //used for gathered points during the game
+    String lastMoveType = "DiscardMove";
     public ArrayList<Card> cardsPlayed = new ArrayList<>();
     public Hand(){
         name = "";
@@ -38,6 +38,7 @@ public class Hand extends Deck{
     }
 
     public Card makeMove(Game gameState, String moveType){
+        lastMoveType = moveType;
         Card play = dm.makeMove(gameState, moveType, this);
         //cardsPlayed.add(play);
         //System.out.println(play);
@@ -48,6 +49,9 @@ public class Hand extends Deck{
     public void draw(Card c){
         deckList.add(c);
         cardsPlayed = new ArrayList<>();
+        if (dm instanceof Human){
+            sort();
+        }
     }
 
     public void drawMultiple(ArrayList<Card> cList){
@@ -78,7 +82,11 @@ public class Hand extends Deck{
     public Card playGivenCard(Card card){
         for (Card c: deckList){
             if (card.id == c.id && card.suit == c.suit){
-                System.out.println(this+ " plays: " + c);
+                if (game.humanGame && lastMoveType == "DiscardMove"){
+                    System.out.println(this + " discarded a card");
+                }else {
+                    System.out.println(this + " plays: " + c);
+                }
                 deckList.remove(c);
                 return c;
             }
@@ -91,9 +99,6 @@ public class Hand extends Deck{
 //        score++;
 //    }
 
-    public void addPoints(int points){
-        this.points += points;
-    }
 
     public void win(int score){
         this.score+=score;
@@ -110,6 +115,15 @@ public class Hand extends Deck{
 
     @Override
     public String toString() {
-        return name + ": " + deckList.toString() + " (" + score + "Pts)";
+
+        if (game.humanGame){
+            if (name == "Crib"){
+                return name + " (" + score + "Pts)";
+            }
+            return name + " (" + score + "Pts)";
+        }
+        else {
+            return name + ": " + deckList.toString() + " (" + score + "Pts)";
+        }
     }
 }

@@ -5,8 +5,6 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Evaluator {
 
@@ -29,11 +27,6 @@ public class Evaluator {
         }
     }
 
-    public int decideCribbagePlayScore(Hand currentPlayer, Deck discardDeck, ArrayList<Card> opponetCards){
-
-
-        return 1;
-    }
 
 
     public int getCribbagePlayScore(Hand currentPlayer, Deck discardDeck){
@@ -149,8 +142,12 @@ public class Evaluator {
     public int getCribbageHandScore(Hand currentPlayer, Card flipCard){
         int initialScore = currentPlayer.score;
 
-        originalStream.println("Inspecting " + currentPlayer + " + [" + flipCard + "]");
-
+        if (currentPlayer.name == "Crib"){
+            originalStream.println("Inspecting the crib: " + currentPlayer.getDeckList() );
+        }
+        else {
+            originalStream.println("Inspecting the cards of " + currentPlayer + "'s hand + [" + flipCard + "]");
+        }
 
 
         Hand calculator = new Hand("Calculator", new Game(true));
@@ -467,7 +464,12 @@ public class Evaluator {
             if (v1 + v2 + v3 + v4 + v5 == 15){currentPlayer.win(2); originalStream.println("Found 15 " + c1 + c2 + c3 + c4 + c5);}
         }
 
-        originalStream.println("Inspected " + currentPlayer + " + [" + flipCard + "]");
+        if (currentPlayer.name == "Crib"){
+            originalStream.println("Inspected the crib: " + currentPlayer.getDeckList() );
+        }
+        else {
+            originalStream.println("Inspected the cards of " + currentPlayer + " + [" + flipCard + "]");
+        }
         originalStream.println();
         int finalScore = currentPlayer.getScore() - initialScore;
 

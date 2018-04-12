@@ -10,10 +10,14 @@ import java.util.ArrayList;
  * Created by robert on 2018. 03. 28..
  */
 public class Launcher{
+    boolean human = false;
+    String ai1 = "Hybrid";
+    String ai2 = "Hybrid";
+    int gameAmount = 1;
+
     public Launcher(){
 
         boolean gotInput = false;
-        boolean ai = true;
         String inputString  = "";
         while (!gotInput) {
             System.out.println("Choose a Game Mode!");
@@ -29,10 +33,10 @@ public class Launcher{
                 e.printStackTrace();
             }
             if (inputString.equals("1")) {
-
+                human = true;
                 gotInput = true;
             } else if (inputString.equals("2")) {
-                ai = true;
+                human = false;
                 gotInput = true;
             } else {
                 System.out.println("Invalid Input");
@@ -51,11 +55,79 @@ public class Launcher{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            playGames(Integer.parseInt(inputString));
+            gameAmount = (Integer.parseInt(inputString));
+            gotInput = true;
         }
 
+        gotInput = false;
+        while (!gotInput) {
+            System.out.println("Choose an AI difficulty");
+            System.out.println("   [1] - Beginner");
+            System.out.println("   [2] - Intermediate");
+            System.out.println("   [3] - Advanced");
+            System.out.println("   [3] - Legacy (warning - slow)");
+            InputStream streamer = System.in;
 
+            InputStreamReader sr = new InputStreamReader(streamer);
+            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                inputString = input.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (inputString.equals("1")) {
+                ai1 = "Basic";
+                gotInput = true;
+            } else if (inputString.equals("2")) {
+                ai1 = "Lite";
+                gotInput = true;
+            } else if (inputString.equals("3")) {
+                ai1 = "Hybrid";
+                gotInput = true;
+            } else if (inputString.equals("4")) {
+                ai1 = "Full";
+                gotInput = true;
+            }else {
+                System.out.println("Invalid Input");
+            }
+        }
 
+        if (!human) {
+            gotInput = false;
+            while (!gotInput) {
+                System.out.println("Choose another AI difficulty");
+                System.out.println("   [1] - Beginner");
+                System.out.println("   [2] - Intermediate");
+                System.out.println("   [3] - Advanced");
+                System.out.println("   [3] - Legacy (warning - slow)");
+                InputStream streamer = System.in;
+
+                InputStreamReader sr = new InputStreamReader(streamer);
+                BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+                try {
+                    inputString = input.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (inputString.equals("1")) {
+                    ai2 = "Basic";
+                    gotInput = true;
+                } else if (inputString.equals("2")) {
+                    ai2 = "Lite";
+                    gotInput = true;
+                } else if (inputString.equals("3")) {
+                    ai2 = "Hybrid";
+                    gotInput = true;
+                } else if (inputString.equals("4")) {
+                    ai2 = "Full";
+                    gotInput = true;
+                } else {
+                    System.out.println("Invalid Input");
+                }
+            }
+        }
+
+        playGames(gameAmount);
 
 //        originalStream = new PrintStream(new OutputStream() {
 //            @Override
@@ -72,7 +144,7 @@ public class Launcher{
         int dennisWins = 0;
         for (int i = 0; i < numberofRounds; i++) {
             System.out.println("========== Game: " + (i + 1) + " ==========");
-            Game game = new Game();
+            Game game = new Game(i+1, this);
             winners.add(game.winner.name);
             if (game.winner.name == "Preacher") {
                 preacherWins++;

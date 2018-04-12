@@ -17,9 +17,9 @@ public class DecisionMaker {
 //            return handList.get(0);
 //        }
 //        else{
-            System.out.println("Something went wrong while trying to discard a card (AI.java)");
+            System.out.println("Something went wrong");
 //        }
-        return new Card("0");
+        return new Card("X");
 
     }
 

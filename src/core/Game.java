@@ -1,5 +1,9 @@
 package core;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Game {
@@ -7,11 +11,43 @@ public class Game {
     boolean playing = true;
     boolean outOfCards = false;
     boolean gameOver = false;
+    int gameNum = 0;
+    String name = "Dennis";
+    boolean humanGame = false;
     public Hand winner = new Hand("DummyHand", this);
 
-    public Game(){
-        hand1 = new Hand("Preacher", "Lite", this);
-        hand2 = new Hand("Dennis", "Hybrid", this);
+    public Game(int num, Launcher launcher){
+        this.humanGame = launcher.human;
+        if (humanGame){
+            System.out.println("Enter your name");
+            InputStream streamer = System.in;
+            InputStreamReader sr = new InputStreamReader(streamer);
+            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                name = input.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        gameNum = num;
+        String p1AI;
+        if (humanGame){
+            p1AI = "Human";
+        }
+        else{
+            p1AI = launcher.ai1;
+        }
+        String p2AI = launcher.ai2;
+
+        if((gameNum%2)==0){
+            hand2 = new Hand("John", p2AI, this);
+            hand1 = new Hand(name, p1AI, this);
+        }
+        else{
+            hand2 = new Hand("John", p2AI, this);
+            hand1 = new Hand(name, p1AI, this);
+
+        }
 
         players = new ArrayList<>();
         players.add(hand1);
@@ -23,8 +59,8 @@ public class Game {
         int i = 1;
         while (!gameOver){
             cribbageRound(i++);
-        }
-    }
+        }    }
+
 
     public Game(boolean dudGame){
         //Do nothing, Use with care
@@ -71,7 +107,8 @@ public class Game {
 
 
     public void cribbageRound(int round) {
-        System.out.println("========== Round: " + round + " ==========");
+        System.out.println("Game: " + gameNum + " = Round: " + round + " ==========");
+        Game:
 
         initialize();
         dealToAll(6);
@@ -93,6 +130,7 @@ public class Game {
 //            cribManager.addCard(
 //                    player.makeMove(this, "DiscardMoveX"));
 //        }
+        System.out.println("The crib belongs to " + dealer + " this round");
         cribManager.addCard(
                 hand1.makeMove(this, "DiscardMove"));
         cribManager.addCard(
@@ -113,7 +151,7 @@ public class Game {
         Card firstCard = deckManager.dealCard();
 //        Card firstCard = new Card("4", "H");
         if (firstCard.face == "J") {
-            dealer.addPoints(2);
+            dealer.win(2);
         }
 
         ArrayList<Card> hand1Copy = (ArrayList<Card>) hand1.getDeckList().clone();
@@ -129,8 +167,8 @@ public class Game {
 //        System.out.println(hand1.getDeckList());
 //        System.out.println(hand1Copy);
 
-        Hand currentPlayer = nonDealer;
-        Hand otherPlayer = dealer;
+        Hand currentPlayer = dealer;
+        Hand otherPlayer = nonDealer;
         Hand tempHand;
 
 //        System.out.println(discardManager);
@@ -218,7 +256,7 @@ public class Game {
 
         e.getCribbageHandScore(hand1, firstCard);
         e.getCribbageHandScore(hand2, firstCard);
-        e.getCribbageHandScore(cribManager, firstCard);
+        dealer.win(e.getCribbageHandScore(cribManager, firstCard));
 
         while (hand1.getDeckList().size()>0){
 //            System.out.println("ERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR");

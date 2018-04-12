@@ -8,7 +8,7 @@ import java.util.Set;
 public class AI extends DecisionMaker{
     Card futureMove = new Card("X");
     boolean futureSet = false;
-    String level = "Hybrid";//other accepted are: "Full", "Lite", Hybrid
+    String level = "Hybrid";//other accepted are: "Full", "Lite", "Hybrid", "Basic"
 
     public AI(){
 
@@ -20,15 +20,15 @@ public class AI extends DecisionMaker{
 
     @Override
     public Card makeMove(Game gameState, String moveType, Hand currentPlayer) {
-        if (moveType == "Play_Old"){
+        if (moveType == "Play" && level =="Basic"){
             int count = gameState.getCount();
             for (Card c: currentPlayer.getDeckList()){
                 if (c.getValue() + count <= 31){
-                    System.out.println(currentPlayer + " played " + c + ", the count is: " + (count+c.getValue()));
+//                    System.out.println(currentPlayer + " played " + c + ", the count is: " + (count+c.getValue()));
                     return currentPlayer.playGivenCard(c);
                 }
             }
-            System.out.println(currentPlayer + " has no cards left less than 31");
+//            System.out.println(currentPlayer + " has no cards left less than 31");
             return new Card("X", "S");
         }
 
@@ -60,7 +60,7 @@ public class AI extends DecisionMaker{
 //            System.out.println("viablemoves: " + viableMoves);
 
             if (viableMoves.size() < 1){
-                System.out.println(currentPlayer + " has no cards left less than 31");
+//                System.out.println(currentPlayer + " has no cards left less than 31");
                 return new Card("X", "S");
             }
 
@@ -84,7 +84,14 @@ public class AI extends DecisionMaker{
                     }
 
                     if (shouldBeAvoided(c, otherPlayer.cardsPlayed)){
-                        unknownScores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck) * (4 - otherPlayer.cardsPlayed.size()));
+                        if (true){
+                            unknownScores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck) * 6);
+
+                        }
+                        else{
+                            unknownScores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck) * 5);
+
+                        }
                     }else {
                         unknownScores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck) * 1);
                     }
@@ -99,33 +106,20 @@ public class AI extends DecisionMaker{
                 unknownScores = new ArrayList<>();
                 unknownAverages.add(average);
             }
-            System.out.println(unknownAverages);
-            System.out.println(viableMoves);
+//            System.out.println(unknownAverages);
+//            System.out.println(viableMoves);
             for (int i = 0; i < viableMoves.size(); i++){
                 Deck discardDeck = new Deck(false);
                 discardDeck.addMultiple((ArrayList<Card>) gameState.getDiscardPile().clone());
                 discardDeck.addCard(viableMoves.get(i));
                 Hand dummyPlayer = new Hand("DummyPlayer", new Game(true));
                 dummyPlayer.drawMultiple(deckList);
-                if (currentPlayer.name == "Dennis1") {
+                if (level == "Hybrid" || level == "Full"){
                     scores.add((double) e.getCribbagePlayScore(dummyPlayer, discardDeck) - unknownAverages.get(i));
                 }
                 else {
                     scores.add((double) e.getCribbagePlayScore(dummyPlayer, discardDeck));
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
 
 //            System.out.println(scores);
@@ -143,7 +137,7 @@ public class AI extends DecisionMaker{
 
 
         if ((moveType == "DiscardMove") && (level == "Hybrid")){
-            System.out.println("Hybrid Discard Analysis");
+//            System.out.println("Hybrid Discard Analysis");
             if (futureSet){
                 futureSet = false;
                 return currentPlayer.playGivenCard(futureMove);
@@ -175,8 +169,8 @@ public class AI extends DecisionMaker{
                 }
                 currentDiscard.remove(viableMoves.get(i));
             }
-            System.out.println(potentialHnads);
-            System.out.println(potentialDiscards);
+//            System.out.println(potentialHnads);
+//            System.out.println(potentialDiscards);
 
             Deck possibleFlipCards = new Deck(true);
             for (Card c: currentPlayer.getDeckList()){
@@ -248,10 +242,10 @@ public class AI extends DecisionMaker{
                 else{
                     averageScores.add(a - c);
                 }
-                System.out.print(c+ " ");
+//                System.out.print(c+ " ");
             }
-            System.out.println();
-            System.out.println(averageScores);
+//            System.out.println();
+//            System.out.println(averageScores);
 
 
             float maxAverage = -1;
@@ -269,7 +263,7 @@ public class AI extends DecisionMaker{
 
 
         if (moveType == "DiscardMove" && level == "Full"){
-            System.out.println("Full Discard Analysis");
+//            System.out.println("Full Discard Analysis");
             if (futureSet){
                 futureSet = false;
                 return currentPlayer.playGivenCard(futureMove);
@@ -301,8 +295,8 @@ public class AI extends DecisionMaker{
                 }
                 currentDiscard.remove(viableMoves.get(i));
             }
-            System.out.println(potentialHnads);
-            System.out.println(potentialDiscards);
+//            System.out.println(potentialHnads);
+//            System.out.println(potentialDiscards);
 
             Deck possibleFlipCards = new Deck(true);
             for (Card c: currentPlayer.getDeckList()){
@@ -363,10 +357,10 @@ public class AI extends DecisionMaker{
                 else{
                     averageScores.add(a - c);
                 }
-                System.out.print(c+ " ");
+//                System.out.print(c+ " ");
             }
-            System.out.println();
-            System.out.println(averageScores);
+//            System.out.println();
+//            System.out.println(averageScores);
 
 
             float maxAverage = -1;
@@ -383,7 +377,7 @@ public class AI extends DecisionMaker{
         }
 
         if ((moveType == "DiscardMove") && (level == "Lite")){
-            System.out.println("Lite Discard Analysis");
+//            System.out.println("Lite Discard Analysis");
             if (futureSet){
                 futureSet = false;
                 return currentPlayer.playGivenCard(futureMove);
@@ -415,8 +409,8 @@ public class AI extends DecisionMaker{
                 }
                 currentDiscard.remove(viableMoves.get(i));
             }
-            System.out.println(potentialHnads);
-            System.out.println(potentialDiscards);
+//            System.out.println(potentialHnads);
+//            System.out.println(potentialDiscards);
 
             Deck possibleFlipCards = new Deck(true);
             for (Card c: currentPlayer.getDeckList()){
@@ -482,10 +476,10 @@ public class AI extends DecisionMaker{
                 else{
                     averageScores.add(a - c);
                 }
-                System.out.print(c+ " ");
+//                System.out.print(c+ " ");
             }
-            System.out.println();
-            System.out.println(averageScores);
+//            System.out.println();
+//            System.out.println(averageScores);
 
 
             float maxAverage = -1;
@@ -500,9 +494,12 @@ public class AI extends DecisionMaker{
             }
             return currentPlayer.playGivenCard(toBePlayed);
         }
+        if ((moveType == "DiscardMove") && (level == "Basic")) {
+            return currentPlayer.playFirstCard();
+        }
 
 
-        return currentPlayer.playFirstCard();
+            return currentPlayer.playFirstCard();
     }
 
     public boolean shouldBeAvoided(Card referenceCard, ArrayList<Card> opponentList){
