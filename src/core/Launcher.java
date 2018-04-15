@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class Launcher{
     boolean human = false;
+    float length = 0;
     String ai1 = "Hybrid";
     String ai2 = "Hybrid";
     int gameAmount = 1;
@@ -65,7 +66,7 @@ public class Launcher{
             System.out.println("   [1] - Beginner");
             System.out.println("   [2] - Intermediate");
             System.out.println("   [3] - Advanced");
-            System.out.println("   [3] - Legacy (warning - slow)");
+            System.out.println("   [4] - Legacy (warning - slow)");
             InputStream streamer = System.in;
 
             InputStreamReader sr = new InputStreamReader(streamer);
@@ -99,7 +100,7 @@ public class Launcher{
                 System.out.println("   [1] - Beginner");
                 System.out.println("   [2] - Intermediate");
                 System.out.println("   [3] - Advanced");
-                System.out.println("   [3] - Legacy (warning - slow)");
+                System.out.println("   [4] - Legacy (warning - slow)");
                 InputStream streamer = System.in;
 
                 InputStreamReader sr = new InputStreamReader(streamer);
@@ -144,17 +145,19 @@ public class Launcher{
         int dennisWins = 0;
         for (int i = 0; i < numberofRounds; i++) {
             System.out.println("========== Game: " + (i + 1) + " ==========");
-            Game game = new Game(i+1, this);
+            Game game = new Game((int) (i+1), this);
             winners.add(game.winner.name);
-            if (game.winner.name == "Preacher") {
+            if (game.winner.name == "John") {
                 preacherWins++;
             } else {
                 dennisWins++;
             }
-            System.out.println("Dennis: " + dennisWins + " --- Preacher: " + preacherWins);
+            System.out.println("Player 1: " + dennisWins + " --- John: " + preacherWins);
         }
         System.out.println(winners);
-        System.out.println("Dennis: " + dennisWins + " --- Preacher: " + preacherWins);
+        System.out.println((float)length/(float)numberofRounds);
+        length = 0;
+        System.out.println("Player 1: " + dennisWins + " --- John: " + preacherWins);
     }
 
 }

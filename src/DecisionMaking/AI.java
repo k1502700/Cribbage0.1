@@ -84,16 +84,9 @@ public class AI extends DecisionMaker{
                     }
 
                     if (shouldBeAvoided(c, otherPlayer.cardsPlayed)){
-                        if (true){
-                            unknownScores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck) * 6);
-
-                        }
-                        else{
-                            unknownScores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck) * 5);
-
-                        }
+                        unknownScores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck) * 6);
                     }else {
-                        unknownScores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck) * 1);
+                        unknownScores.add(e.getCribbagePlayScore(dummyPlayer, discardDeck));
                     }
                 }
 
@@ -133,8 +126,6 @@ public class AI extends DecisionMaker{
             }
             return currentPlayer.playGivenCard(returnCard);
         }
-
-
 
         if ((moveType == "DiscardMove") && (level == "Hybrid")){
 //            System.out.println("Hybrid Discard Analysis");
@@ -203,7 +194,7 @@ public class AI extends DecisionMaker{
                         crib.draw(unknownDeck.getDeckList().get(g));
                         crib.draw(unknownDeck.getDeckList().get(h));
                         int opponentCribScore = e.getCribbageHandScore(crib, new Card("X"));
-                        if (opponentCribScore > 0){
+                        if (opponentCribScore > 0 && currentPlayer.game.dealer.name == currentPlayer.name){
 
                         }
                         else {

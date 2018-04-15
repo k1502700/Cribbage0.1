@@ -467,6 +467,9 @@ public class Evaluator {
         if (currentPlayer.name == "Crib"){
             originalStream.println("Inspected the crib: " + currentPlayer.getDeckList() );
         }
+//        if (currentPlayer.name == "John"){
+//            originalStream.println("Inspected the cards of: " +currentPlayer + " " + currentPlayer.getDeckList() + " + [" + flipCard + "]");
+//        }
         else {
             originalStream.println("Inspected the cards of " + currentPlayer + " + [" + flipCard + "]");
         }

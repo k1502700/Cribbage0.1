@@ -59,7 +59,9 @@ public class Game {
         int i = 1;
         while (!gameOver){
             cribbageRound(i++);
-        }    }
+        }
+        launcher.length += i;
+    }
 
 
     public Game(boolean dudGame){

@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CribbageBase_0.1:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a38f6d84-f030-4c4b-9c2c-63c201207c26" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/DecisionMaking/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/DecisionMaking/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/DecisionMaking/DecisionMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/DecisionMaking/DecisionMaker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/DecisionMaking/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/DecisionMaking/Human.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Evaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Evaluator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CribbageBase_0.1/core/Hand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DecisionMaking/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DecisionMaking/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Evaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Launcher.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +32,7 @@
     <favorites_list name="Cribbage0.1" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44846627">
+    <splitter split-orientation="horizontal" split-proportion="0.4588957">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
@@ -36,11 +44,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/core/Launcher.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="666">
-                  <caret line="64" column="34" lean-forward="true" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
+                <state relative-caret-position="785">
+                  <caret line="158" column="19" selection-start-line="158" selection-start-column="19" selection-end-line="158" selection-end-column="19" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -48,11 +56,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/core/Game.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+                <state relative-caret-position="170">
+                  <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1036#1042#0" expanded="true" />
@@ -66,8 +74,8 @@
           <file leaf-file-name="Evaluator.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/core/Evaluator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="567">
-                  <caret line="470" column="59" selection-start-line="470" selection-start-column="59" selection-end-line="470" selection-end-column="59" />
+                <state relative-caret-position="836">
+                  <caret line="472" selection-start-line="469" selection-end-line="472" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#sum15#0;class#Evaluator#0" />
@@ -131,8 +139,8 @@
           <file leaf-file-name="AI.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/DecisionMaking/AI.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1268">
-                  <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+                <state relative-caret-position="-228">
+                  <caret line="196" column="105" selection-start-line="196" selection-start-column="105" selection-end-line="196" selection-end-column="105" />
                   <folding>
                     <element signature="e#350#351#0" expanded="true" />
                     <element signature="e#384#385#0" expanded="true" />
@@ -180,6 +188,8 @@
       <find>4s, 2c</find>
       <find>flush</find>
       <find>count is</find>
+      <find>round 1</find>
+      <find>round: 1</find>
     </findStrings>
     <replaceStrings>
       <replace>originalStream.</replace>
@@ -206,12 +216,12 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/core/Deck.java" />
         <option value="$PROJECT_DIR$/src/DecisionMaking/DecisionMaker.java" />
+        <option value="$PROJECT_DIR$/src/core/Hand.java" />
+        <option value="$PROJECT_DIR$/src/DecisionMaking/Human.java" />
         <option value="$PROJECT_DIR$/src/core/Evaluator.java" />
         <option value="$PROJECT_DIR$/src/core/Game.java" />
         <option value="$PROJECT_DIR$/src/core/Launcher.java" />
-        <option value="$PROJECT_DIR$/src/core/Hand.java" />
         <option value="$PROJECT_DIR$/src/DecisionMaking/AI.java" />
-        <option value="$PROJECT_DIR$/src/DecisionMaking/Human.java" />
       </list>
     </option>
   </component>
@@ -273,6 +283,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
@@ -566,7 +579,7 @@
       <workItem from="1521999278083" duration="2444000" />
       <workItem from="1523361484419" duration="23679000" />
       <workItem from="1523445911318" duration="11666000" />
-      <workItem from="1523530129311" duration="14959000" />
+      <workItem from="1523530129311" duration="41954000" />
     </task>
     <task id="LOCAL-00001" summary="updates">
       <created>1520868328863</created>
@@ -624,11 +637,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523550946748</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="bug fixes and ui">
+      <created>1523550964298</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1523550964298</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185924000" />
+    <option name="totallyTimeSpent" value="212919000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -643,8 +663,8 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.2731137" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" x="16" y="161" width="1029" height="623" id="Run" internal_type="SLIDING" order="2" type="FLOATING" weight="0.3599386" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32897604" />
+      <window_info anchor="bottom" x="69" y="223" width="1017" height="578" id="Run" internal_type="SLIDING" order="2" type="FLOATING" weight="0.3599386" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3267974" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -687,7 +707,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="28" />
+      <option name="time" value="29" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1258,13 +1278,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DecisionMaking/DecisionMaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -1279,6 +1292,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DecisionMaking/DecisionMaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1288,8 +1308,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Evaluator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="470" column="59" selection-start-line="470" selection-start-column="59" selection-end-line="470" selection-end-column="59" />
+        <state relative-caret-position="836">
+          <caret line="472" selection-start-line="469" selection-end-line="472" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#sum15#0;class#Evaluator#0" />
@@ -1301,10 +1321,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="785">
+          <caret line="158" column="19" selection-start-line="158" selection-start-column="19" selection-end-line="158" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+        <state relative-caret-position="170">
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1036#1042#0" expanded="true" />
@@ -1328,23 +1358,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DecisionMaking/AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1268">
-          <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+        <state relative-caret-position="-228">
+          <caret line="196" column="105" selection-start-line="196" selection-start-column="105" selection-end-line="196" selection-end-column="105" />
           <folding>
             <element signature="e#350#351#0" expanded="true" />
             <element signature="e#384#385#0" expanded="true" />
             <element signature="method#shouldBeAvoided#0;class#AI#0" />
             <element signature="method#getAvoided#0;class#AI#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="64" column="34" lean-forward="true" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1356,5 +1376,82 @@
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>CribbageBase_0.1:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>CribbageBase_0.1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
