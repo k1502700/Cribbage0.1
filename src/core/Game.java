@@ -181,7 +181,7 @@ public class Game {
         while (!outOfCards) {
             discardManager.discardAll();
             if (firstRound){
-                discardManager.addCard(firstCard);
+                //discardManager.addCard(firstCard);
                 System.out.println("Flip Card: " + firstCard);
                 firstRound = false;
             }
